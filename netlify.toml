@@ -2,6 +2,13 @@
   command   = "npm run build"
   publish   = "dist"
 
+# Redirect Netlify subdomain to production domain
+[[redirects]]
+  from   = "https://skymakers-digital.netlify.app/*"
+  to     = "https://skymakers.digital/:splat"
+  status = 301
+  force  = true
+
 # .html extension redirects (Webflow export compatibility)
 [[redirects]]
   from   = "/*.html"
