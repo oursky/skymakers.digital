@@ -1,0 +1,25 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import HeaderDark from '@/components/header/HeaderDark.astro';
+import HeaderLight from '@/components/header/HeaderLight.astro';
+import Footer from '@/components/footer/Footer.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogTitle?: string;
+  ogImage?: string;
+  canonical?: string;
+  navVariant?: 'dark' | 'light';
+  wfPageId?: string;
+  pageScript?: string;
+  bodyClass?: string;
+}
+const { navVariant = 'light', ...rest } = Astro.props;
+---
+
+<BaseLayout {...rest}>
+  {navVariant === 'dark' ? <HeaderDark /> : <HeaderLight />}
+  <slot />
+  <Footer />
+</BaseLayout>

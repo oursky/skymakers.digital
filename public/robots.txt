@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://www.skymakers.digital/sitemap-index.xml

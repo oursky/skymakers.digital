@@ -1,0 +1,39 @@
+# Netlify
+.netlify
+
+# Astro build output
+dist/
+.astro/
+
+# Dependencies
+node_modules/
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editor
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Claude Code
+.claude/
+.mcp.json
+
+# Logs
+*.log
+npm-debug.log*
+
+# Migration script (dev-only)
+migrate.py

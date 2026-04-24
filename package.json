@@ -1,0 +1,15 @@
+{
+  "name": "skymakers-digital",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "preview:netlify": "netlify dev"
+  },
+  "dependencies": {
+    "astro": "^5.7.0",
+    "@astrojs/sitemap": "^3.2.1"
+  },
+  "devDependencies": {}
+}
