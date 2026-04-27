@@ -3,11 +3,6 @@ const currentPath = Astro.url.pathname;
 ---
 
 <div
-  data-animation="default"
-  data-collapse="medium"
-  data-duration="400"
-  data-easing="ease"
-  data-easing2="ease"
   role="banner"
   class="navbar-2 dark w-nav"
 >
@@ -42,7 +37,7 @@ const currentPath = Astro.url.pathname;
       <a href="https://jobs.oursky.com" class="nav-link w-nav-link">Jobs</a>
       <a href="/contact" class:list={['nav-link', 'w-nav-link', { 'w--current': currentPath === '/contact/' }]}>Contact</a>
     </nav>
-    <div class="menu-button-2 dark w-nav-button">
+    <div class="menu-button-2 dark w-nav-button" aria-expanded="false" aria-label="Toggle navigation">
       <div class="burger dark w-icon-nav-menu"></div>
     </div>
   </div>
@@ -63,3 +58,29 @@ const currentPath = Astro.url.pathname;
     }
   }
 </style>
+
+<script is:inline>
+  (function () {
+    var nav = document.querySelector('.navbar-2.dark');
+    if (!nav) return;
+    var burger = nav.querySelector('.w-nav-button');
+    var menu = nav.querySelector('.w-nav-menu');
+    var dropdown = nav.querySelector('.w-dropdown');
+    var dropList = nav.querySelector('.w-dropdown-list');
+
+    burger && burger.addEventListener('click', function () {
+      var open = menu.classList.toggle('w--open');
+      burger.setAttribute('aria-expanded', String(open));
+    });
+
+    if (dropdown && dropList) {
+      dropdown.addEventListener('click', function (e) {
+        e.stopPropagation();
+        dropList.classList.toggle('w--open');
+      });
+      document.addEventListener('click', function () {
+        dropList.classList.remove('w--open');
+      });
+    }
+  })();
+</script>
